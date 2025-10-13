@@ -1,135 +1,115 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+       // variaveis
 int main() {
-    // Variáveis
     char estado1[50], estado2[50];
-    unsigned long int populacao1, populacao2, Super_poder1, Super_poder2;
-    float Dens_populac1, Pib_Capita1, Dens_populac2, Pib_Capita2;
+    unsigned long int populacao1, populacao2;
+    float Dens_populac1, Dens_populac2;
     double area1, area2, pib1, pib2;
     int pontoturisticos1, pontoturisticos2;
+    int carta1, carta2;
 
-    // Solicitação dos dados da Carta 1
-    printf("Digite os dados da Carta nº 1:\n");
+       // Menu
+     printf("####### MENU SUPER TRUNFO ########\n");
+    printf("1 - Estado\n");
+    printf("2 - População\n");
+    printf("3 - Área\n");
+    printf("4 - PIB\n");
+    printf("5 - Pontos Turísticos\n");
+    printf("6 - Densidade Demográfica\n");
+           // Escolha dos atributos da carta 1
+    printf("Escolha uma opção para a Carta 1\n: ");
+    scanf("%d", &carta1);
 
-    printf("Estado: ");
-    scanf("%s", estado1);
+      // utilização do switch
+     switch (carta1) {
+        case 1:
+            printf("Carta1: Estado\n");
+            scanf("%s", estado1);
+            printf("O Estado ==> %s\n", estado1);
+            break;
+        case 2:
+            printf("Carta1: População\n");
+            scanf("%lu", &populacao1);
+            printf("A População ==> %lu\n", populacao1);
+            break;
+        case 3:
+            printf("Carta1: Área\n");
+            scanf("%lf", &area1);
+            printf("A Área ==> %lf\n", area1);
+            break;
+        case 4:
+            printf("Carta1: PIB\n");
+            scanf("%lf", &pib1);
+            printf("O PIB ==> %lf\n", pib1);
+            break;
+        case 5:
+            printf("Carta1: Pontos Turísticos\n");
+            scanf("%d", &pontoturisticos1);
+            printf("Os Pontos Turísticos ==> %d\n", pontoturisticos1);
+            break;
+        case 6:
+            printf("Carta1: Densidade Populacional\n");
+            printf("Informe população e área:\n");
+            scanf("%lu %lf", &populacao1, &area1);
+            Dens_populac1 = populacao1 / (float) area1;
+            printf("A Dens. Populacional ==> %.2f\n", Dens_populac1);
+            break;
+        default:
+            printf("Opção inválida\n");
+            return 0;
+    }
+              // Escolha dos atributos da carta 2
+    printf("Escolha uma opção para a Carta 2\n: ");
+    scanf("%d", &carta2);
 
-    printf("População: ");
-    scanf("%lu", &populacao1); 
-
-    printf("Área: ");
-    scanf("%lf", &area1);
-
-    printf("PIB: ");
-    scanf("%lf", &pib1);
-
-    printf("Pontos turísticos: ");
-    scanf("%d", &pontoturisticos1);
-
-    // Cálculos da Carta 1
-    Dens_populac1 = populacao1 / (float) area1;
-    Pib_Capita1 = (float) pib1 / populacao1;
-    Super_poder1 = (populacao1 + (unsigned long int) area1 + (unsigned long int) pib1 +
-                    pontoturisticos1 + (unsigned long int) Pib_Capita1 + (unsigned long int)(1 / Dens_populac1)); 
-
-    // Solicitação dos dados da Carta 2
-    printf("\nDigite os dados da Carta nº 2:\n");
-
-    printf("Estado: ");
-    scanf("%s", estado2);
-
-    printf("População: ");
-    scanf("%lu", &populacao2); 
-
-    printf("Área: ");
-    scanf("%lf", &area2);
-
-    printf("PIB: ");
-    scanf("%lf", &pib2);
-
-    printf("Pontos turísticos: ");
-    scanf("%d", &pontoturisticos2);
-
-    // Cálculos da Carta 2
-    Dens_populac2 = populacao2 / (float) area2;
-    Pib_Capita2 = (float) pib2 / populacao2;
-    Super_poder2 = (populacao2 + (unsigned long int) area2 + (unsigned long int) pib2 +
-                    pontoturisticos2 + (unsigned long int) Pib_Capita2 + (unsigned long int)(1 / Dens_populac2));
-
-    // Exibindo resultados da Carta 1
-    printf("\n===== Carta 1 =====\n");
-    printf("Estado: %s\n", estado1);
-    printf("População: %lu\n", populacao1); 
-    printf("Área: %.2f\n", area1);
-    printf("PIB: %.2f\n", pib1);
-    printf("Turismo: %d\n", pontoturisticos1);
-    printf("Densidade Populacional: %.2f\n", Dens_populac1);
-    printf("PIB per Capita: %.2f\n", Pib_Capita1);
-    printf("Super Poder Carta 1: %lu\n", Super_poder1); 
-
-    // Exibindo resultados da Carta 2
-    printf("\n===== Carta 2 =====\n");
-    printf("Estado: %s\n", estado2);
-    printf("População: %lu\n", populacao2); 
-    printf("Área: %.2f\n", area2);
-    printf("PIB: %.2f\n", pib2);
-    printf("Turismo: %d\n", pontoturisticos2);
-    printf("Densidade Populacional: %.2f\n", Dens_populac2);
-    printf("PIB per Capita: %.2f\n", Pib_Capita2);
-    printf("Super Poder Carta 2: %lu\n\n", Super_poder2); 
-
-    //Comparação dos atributos
-
-    if (populacao1 >= populacao2) {
-        printf("Carta 1 - População:%lu\n", populacao1);
+    switch (carta2) {
+        case 1:
+            printf("Carta2: Estado\n");
+            scanf("%s", estado2);
+            printf("O Estado ==> %s\n", estado2);
+            break;
+        case 2:
+            printf("Carta2: População\n");
+            scanf("%lu", &populacao2);
+            printf("A População ==> %lu\n", populacao2);
+            break;
+        case 3:
+            printf("Carta2: Área\n");
+            scanf("%lf", &area2);
+            printf("A Área ==> %lf\n", area2);
+            break;
+        case 4:
+            printf("Carta2: PIB\n");
+            scanf("%lf", &pib2);
+            printf("O PIB ==> %lf\n", pib2);
+            break;
+        case 5:
+            printf("Carta2: Pontos Turísticos\n");
+            scanf("%d", &pontoturisticos2);
+            printf("Os Pontos Turísticos ==> %d\n", pontoturisticos2);
+            break;
+        case 6:
+            printf("Carta2: Densidade Populacional\n");
+            printf("Informe população e área:\n");
+            scanf("%lu %lf", &populacao2, &area2);
+            Dens_populac2 = populacao2 / (float) area2;
+            printf("A Dens. Populacional ==> %.2f\n", Dens_populac2);
+            break;
+        default:
+            printf("Opção inválida\n");
+            return 0;
+    }
+               // Comparação entre os atributos
+    if (populacao1 == populacao2) {
+        printf("\nEmpate!\n");
+    } else if ((populacao1 > populacao2 && area1 > area2) || 
+               (pib1 > pib2 && pontoturisticos1 > pontoturisticos2) || 
+               (Dens_populac1 < Dens_populac2)) {
+        printf("\n###### CARTA 1 GANHOUUUU ######\n");
     } else {
-        printf("Carta 2 - População: %lu\n", populacao2);
-    }            // Area
-    if (area1 >= area2){
-        printf("Carta 1 - Area:%.2f\n", area1);
-    }
-    else {
-        printf("Carta 2 - Area:%.2f\n", area2);
-    }           // PIB
-    if (pib1 >= pib2){
-        printf("Carta 1 - PIB:%.2f\n", pib1);
-    }
-    else {
-        printf("Carta 2 - PIB:%.2f\n", pib2);
-    }          // Pontos Turisticos
-    if (pontoturisticos1 >= pontoturisticos2){
-        printf("Carta 1 - Turismo:%d\n", pontoturisticos1);
-    }
-    else {
-        printf("Carta 2 - Turismo:%d\n", pontoturisticos2);
-    }          // Densidade Demografica
-    if (Dens_populac1 >= Dens_populac2){
-        printf("Carta 1 - Densidade Populacional:%.2f\n", Dens_populac1);
-    }     
-    else {
-        printf("Carta 2 - Densidade Populacional%.2f\n", Dens_populac2);
-    }         // PIB PER CAPITA
-    if (Pib_Capita1 >= Pib_Capita2){
-        printf("Carta 1 - PIB PER CAPITA:%.2f\n", Pib_Capita1);
-    }
-    else {
-        printf("Carta 2 - PIB PER CAPITA:%.2f\n", Pib_Capita2);
-    }        
-    if (Super_poder1 >= Super_poder2){
-        printf("Carta 1 - SUPER PODER:%lu\n\n", Super_poder1);
-    }          
-    else {  
-        printf("Carta 2 - SUPER PODER:%lu\n\n", Super_poder2);
-    }
-
-    //  Verificando o vencedor
-
-    if (Super_poder1 > Super_poder2) {
-        printf("CARTA 1 VENCEU! %lu\n", Super_poder1);
-    } else if (Super_poder2 > Super_poder1) {
-        printf("CARTA 2 VENCEU! %lu\n", Super_poder2);
-    } else {
-        printf("EMPATE! Super Poder é o mesmo para as duas cartas: %lu\n", Super_poder1);
+        printf("\n###### CARTA 2 GANHOUUUU ######\n");
     }
 
     return 0;
